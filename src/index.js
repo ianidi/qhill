@@ -5,9 +5,9 @@ import { Provider } from "react-redux";
 import { configureRootTheme } from "@yandex/ui/Theme";
 import { theme } from "@yandex/ui/Theme/presets/default";
 import App from "./App";
-import { store } from "./app/store";
+import { store } from "./store/store";
 
-import "./index.css";
+import "./asset/css/index.css";
 import "reactjs-popup/dist/index.css";
 import "react-popper-tooltip/dist/styles.css";
 
