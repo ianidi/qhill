@@ -50,8 +50,9 @@ const Layout = styled.div`
 
 const SidebarContainer = styled.div`
   height: 100vh;
+  background-color: #fff;
   width: 270px;
-  @media screen and (max-width: 1480px) {
+  @media screen and (min-width: 1480px) {
     width: 140px;
   }
 `;
@@ -65,8 +66,10 @@ const NavbarContainer = styled.div`
   padding-bottom: 24px;
   padding-left: 40px;
   padding-right: 40px;
+  background-color: #fff;
+  border-left: 1px solid #f4f4f4;
   width: calc(100% - 270px);
-  @media screen and (max-width: 1480px) {
+  @media screen and (min-width: 1480px) {
     width: calc(100% - 140px);
   }
 `;
@@ -74,7 +77,7 @@ const NavbarContainer = styled.div`
 const ContentContainer = styled.div`
   height: 100vh;
   width: calc(100% - 270px);
-  @media screen and (max-width: 1480px) {
+  @media screen and (min-width: 1480px) {
     width: calc(100% - 140px);
   }
 `;
