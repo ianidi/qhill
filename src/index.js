@@ -7,7 +7,7 @@ import { theme } from "@yandex/ui/Theme/presets/default";
 import App from "./App";
 import { store } from "./store/store";
 
-import "./asset/css/index.css";
+import "./asset/css/index.scss";
 import "overlayscrollbars/css/OverlayScrollbars.css";
 import "reactjs-popup/dist/index.css";
 import "react-popper-tooltip/dist/styles.css";
