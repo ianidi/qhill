@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
@@ -12,9 +12,9 @@ import { ReactComponent as InvestmentImage } from "../../asset/images/investment
 const Sidebar = () => (
   <Container>
     <Logo>
-      <Link to={"/"}>
+      <NavLink to="/">
         <LogoImage style={{ width: 163, height: 48 }} />
-      </Link>
+      </NavLink>
     </Logo>
     <div>
       <OverlayScrollbarsComponent
@@ -79,17 +79,20 @@ const Theme = styled.div`
 function MenuItem({ icon, title, to }) {
   return (
     <React.Fragment>
-      <Link
+      <NavLink
         exact
         to={to}
-        className="menuLink__container"
-        activeClassName="menuLink_active"
+        className={({ isActive }) =>
+          isActive
+            ? "menuLink__container menuLink_active"
+            : "menuLink__container"
+        }
       >
         <MenuLink>
           <Icon>{icon}</Icon>
           <MenuTitle>{title}</MenuTitle>
         </MenuLink>
-      </Link>
+      </NavLink>
     </React.Fragment>
   );
 }
