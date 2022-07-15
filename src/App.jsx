@@ -3,13 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
-import breakpoint from "./common/breakpoints";
+//import breakpoint from "./common/breakpoints";
 import Sidebar from "./components/layout/sidebar";
 import Navbar from "./components/layout/navbar";
+import Fund from "./views/fund";
 
 const Page = () => (
   <React.Fragment>
-    <div>frferf</div>
+    <div>Hello</div>
   </React.Fragment>
 );
 
@@ -33,6 +34,7 @@ function App() {
           <Content>
             <Routes>
               <Route path="/" element={<Page />} />
+              <Route path="/fund" element={<Fund />} />
               <Route path="page/:key" element={<Page />} />
             </Routes>
           </Content>
