@@ -24,6 +24,7 @@ function App() {
         <Navbar />
       </NavbarContainer>
       <ContentContainer>
+        <NavbarPlaceholder />
         <OverlayScrollbarsComponent
           options={{
             scrollbars: { autoHide: "never" },
@@ -47,7 +48,6 @@ function App() {
 const Layout = styled.div`
   height: 100vh;
   display: flex;
-  align-items: center;
 `;
 
 const SidebarContainer = styled.div`
@@ -63,6 +63,7 @@ const NavbarContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 100;
   height: 100px;
   display: flex;
   align-items: center;
@@ -78,8 +79,11 @@ const NavbarContainer = styled.div`
   }
 `;
 
+const NavbarPlaceholder = styled.div`
+  height: 100px;
+`;
+
 const ContentContainer = styled.div`
-  height: 100vh;
   width: calc(100% - 270px);
   @media screen and (min-width: 1480px) {
     width: calc(100% - 140px);
@@ -87,9 +91,9 @@ const ContentContainer = styled.div`
 `;
 
 const Content = styled.div`
-  min-height: 100vh;
-  padding-top: 140px;
-  padding-bottom: 130px;
+  min-height: calc(100vh - 180px);
+  padding-top: 40px;
+  padding-bottom: 40px;
   padding-left: 40px;
   padding-right: 40px;
 `;
