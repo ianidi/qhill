@@ -8,6 +8,7 @@ import App from "./App";
 import { store } from "./store/store";
 
 import "./asset/css/index.css";
+import "overlayscrollbars/css/OverlayScrollbars.css";
 import "reactjs-popup/dist/index.css";
 import "react-popper-tooltip/dist/styles.css";
 

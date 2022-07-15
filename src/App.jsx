@@ -6,7 +6,11 @@ import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import breakpoint from "./common/breakpoints";
 import Sidebar from "./components/layout/sidebar";
 
-const Page = () => <React.Fragment>frferf</React.Fragment>;
+const Page = () => (
+  <React.Fragment>
+    <div>frferf</div>
+  </React.Fragment>
+);
 
 function App() {
   return (
@@ -34,6 +38,16 @@ function App() {
   );
 }
 
+{
+  /* <OverlayScrollbarsComponent
+options={{
+  scrollbars: { autoHide: "never" },
+}}
+style={{ maxHeight: "100vh" }}
+className="os-theme-thin-dark"
+>
+</OverlayScrollbarsComponent> */
+}
 const Layout = styled.div`
   height: 100vh;
   display: flex;
