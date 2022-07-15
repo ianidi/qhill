@@ -5,6 +5,7 @@ import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
 import breakpoint from "./common/breakpoints";
 import Sidebar from "./components/layout/sidebar";
+import Navbar from "./components/layout/navbar";
 
 const Page = () => (
   <React.Fragment>
@@ -18,6 +19,9 @@ function App() {
       <SidebarContainer>
         <Sidebar />
       </SidebarContainer>
+      <NavbarContainer>
+        <Navbar />
+      </NavbarContainer>
       <ContentContainer>
         <OverlayScrollbarsComponent
           options={{
@@ -38,16 +42,6 @@ function App() {
   );
 }
 
-{
-  /* <OverlayScrollbarsComponent
-options={{
-  scrollbars: { autoHide: "never" },
-}}
-style={{ maxHeight: "100vh" }}
-className="os-theme-thin-dark"
->
-</OverlayScrollbarsComponent> */
-}
 const Layout = styled.div`
   height: 100vh;
   display: flex;
@@ -62,6 +56,21 @@ const SidebarContainer = styled.div`
   }
 `;
 
+const NavbarContainer = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: calc(100% - 270px);
+  @media screen and (max-width: 1480px) {
+    width: calc(100% - 140px);
+  }
+`;
+
 const ContentContainer = styled.div`
   height: 100vh;
   width: calc(100% - 270px);
@@ -72,9 +81,10 @@ const ContentContainer = styled.div`
 
 const Content = styled.div`
   min-height: 100vh;
+  padding-top: 140px;
   padding-bottom: 130px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
 `;
 
 export default App;
