@@ -99,7 +99,7 @@ function MenuItem({ icon, title, to }) {
 const MenuLink = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  padding: 12px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;

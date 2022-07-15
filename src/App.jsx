@@ -62,6 +62,8 @@ const NavbarContainer = styled.div`
   top: 0;
   right: 0;
   height: 100px;
+  display: flex;
+  align-items: center;
   padding-top: 24px;
   padding-bottom: 24px;
   padding-left: 40px;
