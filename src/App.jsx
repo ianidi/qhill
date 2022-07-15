@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
 //import breakpoint from "./common/breakpoints";
-import Sidebar from "./components/layout/sidebar";
-import Navbar from "./components/layout/navbar";
-import Fund from "./views/fund";
+import Sidebar from "./Components/Layout/Sidebar";
+import Navbar from "./Components/Layout/Navbar";
+import Fund from "./Views/Fund";
 
 const Page = () => (
   <React.Fragment>

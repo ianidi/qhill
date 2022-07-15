@@ -7,7 +7,7 @@ import { theme } from "@yandex/ui/Theme/presets/default";
 import { ToastContainer } from "react-toastify";
 
 import App from "./App";
-import { store } from "./store/store";
+import { store } from "./Store/Store";
 
 import "./index.scss";
 import "overlayscrollbars/css/OverlayScrollbars.css";

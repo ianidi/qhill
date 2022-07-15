@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
-import "./sidebar.scss";
-import { ReactComponent as LogoImage } from "../../asset/images/logo.svg";
-import { ReactComponent as MarketImage } from "../../asset/images/market.svg";
-import { ReactComponent as FundImage } from "../../asset/images/fund.svg";
-import { ReactComponent as InvestmentImage } from "../../asset/images/investment.svg";
+import "./Sidebar.scss";
+import { ReactComponent as LogoImage } from "../../Asset/Images/logo.svg";
+import { ReactComponent as MarketImage } from "../../Asset/Images/market.svg";
+import { ReactComponent as FundImage } from "../../Asset/Images/fund.svg";
+import { ReactComponent as InvestmentImage } from "../../Asset/Images/investment.svg";
 
 const Sidebar = () => (
   <Container>

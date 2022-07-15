@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import Empty from "../Components/Fund/Empty";
-import TotalWidget from "../Components/Fund/TotalWidget";
-
-const Fund = () => (
+const TotalWidget = () => (
   <React.Fragment>
-    <TotalWidget />
+    <TotalContainer />
   </React.Fragment>
 );
 
@@ -19,4 +16,4 @@ const TotalContainer = styled.div`
   background: #fcfcfc;
 `;
 
-export default Fund;
+export default TotalWidget;
