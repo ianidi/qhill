@@ -46,6 +46,7 @@
     "scroll-lock": "^2.1.5",
     "styled-components": "^5.3.5",
     "styled-jsx": "^5.0.2",
+    "typescript": "^4.7.4",
     "web-vitals": "^2.1.0",
     "zxcvbn": "^4.4.2"
   },
@@ -72,5 +73,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  },
+  "devDependencies": {}
 }
