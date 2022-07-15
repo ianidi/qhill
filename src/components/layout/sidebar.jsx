@@ -3,67 +3,45 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
+import "./sidebar.scss";
 import { ReactComponent as LogoImage } from "../../asset/images/logo.svg";
+import { ReactComponent as MarketImage } from "../../asset/images/market.svg";
+import { ReactComponent as FundImage } from "../../asset/images/fund.svg";
+import { ReactComponent as InvestmentImage } from "../../asset/images/investment.svg";
 
 const Sidebar = () => (
-  <React.Fragment>
-    <Container>
-      <Logo>
-        <Link to={"/"}>
-          <LogoImage style={{ width: 163, height: 48 }} />
-        </Link>
-      </Logo>
-      <div>
-        <OverlayScrollbarsComponent
-          options={{
-            scrollbars: { autoHide: "never" },
-          }}
-          style={{ maxHeight: "80vh" }}
-          className="os-theme-thin-dark"
-        >
-          {/*menu.map((header, index) => (
-              <div key={index}>
-                <MenuHeader {...header} />
-                {header.links.map((link, index_2) => (
-                  <MenuLink key={index_2} {...link} />
-                ))}
-              </div>
-                ))*/}
-
-          <div className="signout__container">
-            <div className="signout">sign out</div>
-          </div>
-        </OverlayScrollbarsComponent>
-      </div>
-    </Container>
-
-    <style jsx>{`
-      .signout__container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 30px;
-      }
-      .signout {
-        margin-top: 20px;
-        margin-bottom: 50px;
-        margin-left: 44px;
-        color: #737373;
-        font-size: 15px;
-        font-weight: 600;
-        cursor: pointer;
-        user-select: none;
-      }
-      @media screen and (max-width: 1480px) {
-        .signout__container {
-          display: none;
-        }
-      }
-    `}</style>
-  </React.Fragment>
+  <Container>
+    <Logo>
+      <Link to={"/"}>
+        <LogoImage style={{ width: 163, height: 48 }} />
+      </Link>
+    </Logo>
+    <div>
+      <OverlayScrollbarsComponent
+        options={{
+          scrollbars: { autoHide: "never" },
+        }}
+        style={{ maxHeight: "80vh" }}
+        className="os-theme-thin-dark"
+      >
+        <MenuItem icon={<MarketImage />} title="DeFunds Market" to="/market" />
+        <MenuItem icon={<FundImage />} title="My DeFunds" to="/fund" />
+        <MenuItem
+          icon={<InvestmentImage />}
+          title="My Investments"
+          to="/investment"
+        />
+      </OverlayScrollbarsComponent>
+    </div>
+    <ThemeContainer>
+      <Theme>Dark / light theme</Theme>
+    </ThemeContainer>
+  </Container>
 );
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 24px;
   background: #fff;
   height: 100%;
@@ -78,6 +56,68 @@ const Logo = styled.div`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 40px;
+`;
+
+const ThemeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  @media screen and (min-width: 1480px) {
+    display: none;
+  }
+`;
+
+const Theme = styled.div`
+  color: #737373;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+`;
+
+function MenuItem({ icon, title, to }) {
+  return (
+    <React.Fragment>
+      <Link
+        exact
+        to={to}
+        className="menuLink__container"
+        activeClassName="menuLink_active"
+      >
+        <MenuLink>
+          <Icon>{icon}</Icon>
+          <MenuTitle>{title}</MenuTitle>
+        </MenuLink>
+      </Link>
+    </React.Fragment>
+  );
+}
+const MenuLink = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  @media screen and (min-width: 1480px) {
+    margin-top: 0;
+  }
+`;
+const Icon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+`;
+
+const MenuTitle = styled.div`
+  margin-left: 24px;
+  @media screen and (min-width: 1480px) {
+    display: none;
+  }
 `;
 
 export default Sidebar;
