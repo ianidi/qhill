@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "@yandex/ui/Button/desktop/bundle";
 
+import FundCard from "../FundCard";
 import { flexGap } from "../../Common/FlexGap";
 
 import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
@@ -22,7 +22,10 @@ const ListWidget = () => (
         Create DeFund
       </ButtonCreate>
     </TitleContainer>
-    <WidgetContainer></WidgetContainer>
+    <WidgetContainer>
+      <FundCard />
+      <FundCard />
+    </WidgetContainer>
   </Container>
 );
 
@@ -79,31 +82,6 @@ const SwitchItem = styled.div`
     background: #e4e4e4;
   }
 `;
-const WidgetContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  ${flexGap("20px")}
-`;
-const Widget = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100px;
-  max-width: 400px;
-  min-width: 300px;
-  align-items: flex-start;
-  flex: 1;
-  padding: 32px;
-  background: #ffffff;
-  border: 2px solid #f4f4f4;
-  border-radius: 12px;
-  @media screen and (max-width: 767px) {
-    width: 100%;
-    max-width: none;
-    min-width: auto;
-    flex: 0 auto;
-  }
-`;
 const ButtonCreate = styled.button`
   display: flex;
   flex-direction: row;
@@ -124,6 +102,12 @@ const ButtonCreate = styled.button`
   &:hover {
     background: #3a8cf9;
   }
+`;
+const WidgetContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  ${flexGap("24px")}
 `;
 
 export default ListWidget;

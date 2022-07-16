@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "@yandex/ui/Button/desktop/bundle";
+
+import { flexGap } from "../../Common/FlexGap";
 
 import oops from "../../Asset/Images/oops.png";
 import oops2x from "../../Asset/Images/oops@2x.png";
@@ -12,10 +13,10 @@ const Empty = () => (
     <img src={oops} srcSet={`${oops2x} 2x, ${oops3x} 3x`} alt="" />
     <Title>You haven’t created any DeFunds yet</Title>
     <Caption>Create the DeFund and start trading</Caption>
-    <Button view="default" size="m">
+    <ButtonCreate>
       <PlusImage />
       Create DeFund
-    </Button>
+    </ButtonCreate>
   </Container>
 );
 
@@ -47,5 +48,26 @@ const Caption = styled.div`
   text-align: center;
   letter-spacing: -0.015em;
   color: #6f767e;
+`;
+const ButtonCreate = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  ${flexGap("8px")}
+  background: #2a85ff;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  transition: all 300ms;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background: #3a8cf9;
+  }
 `;
 export default Empty;
