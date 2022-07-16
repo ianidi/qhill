@@ -136,7 +136,7 @@ const FundCard = () => (
       </TableContainer>
     </Top>
     <ChartContainer>
-      <AreaChart />
+      <AreaChart type="invest" />
     </ChartContainer>
     <ButtonsContainer>
       <ButtonDetails>Details</ButtonDetails>

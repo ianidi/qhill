@@ -7,6 +7,14 @@ class AreaChart extends React.Component {
 
     this.state = {
       options: {
+        theme: {
+          palette:
+            props.type === "trade"
+              ? "palette10"
+              : props.type === "withdraw"
+              ? "palette5"
+              : "palette1",
+        },
         fill: {
           type: "gradient",
           opacity: 0.3,
