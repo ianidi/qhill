@@ -1139,16 +1139,16 @@ body {
 }
 
 .select__control {
-  min-height: 56px !important;
+  min-height: 40px !important;
   padding-left: 6px !important;
   padding-right: 6px !important;
   background-color: #f8f8f8 !important;
   -webkit-transition: all 300ms !important;
   transition: all 300ms !important;
-  color: #333 !important;
+  color: #6f767e !important;
   box-shadow: none !important;
-  border: 1px solid #bbb !important;
-  border-radius: 0px !important;
+  border: 2px solid #efefef !important;
+  border-radius: 12px !important;
 }
 
 .select__control:hover {
@@ -1171,7 +1171,7 @@ body {
   z-index: 1500 !important;
   /* box-shadow: 0 8px 16px -4px rgba(51, 51, 51, 0.2); */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px;
-  border-radius: 0px !important;
+  border-radius: 12px !important;
   background-color: #fff !important;
   margin-top: 4px;
 }
@@ -1181,8 +1181,9 @@ body {
 }
 
 .select__placeholder {
-  color: #333 !important;
-  font-size: 16px !important;
+  color: #6f767e !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
 }
 
 .select__input {
@@ -1202,8 +1203,8 @@ body {
 }
 
 .select__menu-list {
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
 }
 
 .select__option {

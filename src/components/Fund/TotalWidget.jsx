@@ -16,7 +16,7 @@ const TotalWidget = () => (
       <Title>Total DeFunds’ indicators</Title>
       <Select
         //options={options.brand}
-        placeholder="Marke*"
+        placeholder="This month"
         //value={brand}
         name="brand"
         //setValue={(val) => dispatch(setBrand(val))}
@@ -61,11 +61,13 @@ const Container = styled.div`
   flex-direction: column;
   padding: 24px;
   border-radius: 8px;
+  margin-bottom: 8px;
   background: #fcfcfc;
 `;
 const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 32px;
 `;
 const Title = styled.div`
@@ -86,7 +88,7 @@ const Widget = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100px;
-  max-width: 320px;
+  max-width: 400px;
   min-width: 300px;
   align-items: flex-start;
   flex: 1;
