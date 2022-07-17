@@ -6,6 +6,7 @@ import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 //import breakpoint from "./common/breakpoints";
 import Sidebar from "./Components/Layout/Sidebar";
 import Navbar from "./Components/Layout/Navbar";
+import Market from "./Views/Market";
 import Fund from "./Views/Fund";
 
 const Page = () => (
@@ -35,6 +36,7 @@ function App() {
           <Content>
             <Routes>
               <Route path="/" element={<Page />} />
+              <Route path="/market" element={<Market />} />
               <Route path="/fund" element={<Fund />} />
               <Route path="page/:key" element={<Page />} />
             </Routes>

@@ -8,7 +8,7 @@ import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
 
 const ListWidget = () => (
   <Container>
-    <TitleContainer>
+    <Head>
       <SwitchTitleContainer>
         <Title>Managed DeFunds</Title>
         <SwitchContainer>
@@ -21,7 +21,7 @@ const ListWidget = () => (
         <PlusImage />
         Create DeFund
       </ButtonCreate>
-    </TitleContainer>
+    </Head>
     <WidgetContainer>
       <FundCard />
       <FundCard />
@@ -37,7 +37,7 @@ const Container = styled.div`
   margin-bottom: 8px;
   background: #fcfcfc;
 `;
-const TitleContainer = styled.div`
+const Head = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,22 +1,16 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Popup } from "@yandex/ui/Popup/desktop/bundle";
 
 import { flexGap } from "../../Common/FlexGap";
 import Select from "../UI/Select";
-import Filter from "../Filter";
 
 import { ReactComponent as AUMImage } from "../../Asset/Images/aum.svg";
 import { ReactComponent as CommissionImage } from "../../Asset/Images/commission.svg";
 import { ReactComponent as InvestorsImage } from "../../Asset/Images/investors.svg";
 import { ReactComponent as PositiveImage } from "../../Asset/Images/positive.svg";
 import { ReactComponent as NegativeImage } from "../../Asset/Images/negative.svg";
-import { ReactComponent as FilterImage } from "../../Asset/Images/filter.svg";
 
 const TotalWidget = () => {
-  const filterRef = useRef(null);
-  const [visible, setVisible] = useState(false);
-
   return (
     <Container>
       <TitleContainer>
@@ -28,25 +22,6 @@ const TotalWidget = () => {
           name="brand"
           //setValue={(val) => dispatch(setBrand(val))}
         />
-
-        <FilterImageContainer
-          ref={filterRef}
-          onClick={() => setVisible(!visible)}
-        >
-          <FilterImage />
-        </FilterImageContainer>
-        <Popup
-          target="anchor"
-          anchor={filterRef}
-          view="default"
-          direction={["bottom-end"]}
-          visible={visible}
-          onClose={() => setVisible(false)}
-          scope="inplace"
-          motionless={true}
-        >
-          <Filter setVisible={setVisible} />
-        </Popup>
       </TitleContainer>
       <WidgetContainer>
         <AUMWidget>
@@ -83,19 +58,6 @@ const TotalWidget = () => {
   );
 };
 
-const FilterImageContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border: 2px solid #efefef;
-  border-radius: 8px;
-  margin-left: 16px;
-  background: #fff;
-  cursor: pointer;
-`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
