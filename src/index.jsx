@@ -17,23 +17,21 @@ configureRootTheme({ theme });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <HashRouter>
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar
-          newestOnTop={false}
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-          closeButton={false}
-        />
-        <App />
-      </HashRouter>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <HashRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        closeButton={false}
+      />
+      <App />
+    </HashRouter>
+  </Provider>
 );
