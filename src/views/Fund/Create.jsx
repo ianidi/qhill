@@ -1,6 +1,9 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import FroalaEditorComponent from "react-froala-wysiwyg";
+import { Checkbox } from "@yandex/ui/Checkbox/desktop/bundle";
+import { Tumbler } from "@yandex/ui/Tumbler/desktop/bundle";
+import { TooltipStateful } from "@yandex/ui/Tooltip/desktop/bundle";
 
 import "froala-editor/js/plugins.pkgd.min.js";
 // import "froala-editor/js/languages/fr.js";
@@ -13,9 +16,11 @@ import { flexGap } from "../../Common/FlexGap";
 
 import AvatarPlaceholderImage from "../../Asset/Images/AvatarPlaceholder.png";
 import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
+import { ReactComponent as InfoImage } from "../../Asset/Images/info.svg";
 
 const FundCreate = () => {
   const [value, setValue] = useState("");
+  const [checked, setChecked] = useState(false);
 
   const fileInput = useRef();
 
@@ -78,6 +83,27 @@ const FundCreate = () => {
           <Dot />
           <div>White lists</div>
         </SectionTitle>
+
+        <ControlContainer>
+          <ControlWrapper onClick={() => setChecked(!checked)}>
+            <Checkbox label={false} size="m" view="default" checked={checked} />
+            <ControlTitle>TOP50 cap extended</ControlTitle>
+          </ControlWrapper>
+          <InfoImageContainer>
+            <TooltipStateful
+              view="default"
+              size="m"
+              hasTail
+              direction={["bottom", "right"]}
+              content="Stateful hover"
+            >
+              <div className="info__tooltip">
+                <InfoImage />
+              </div>
+            </TooltipStateful>
+          </InfoImageContainer>
+        </ControlContainer>
+
         <Divider />
 
         <Description>
@@ -200,5 +226,34 @@ const Input = styled.input`
   outline: none;
   text-decoration: none !important;
   width: 100%;
+`;
+const ControlContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #1a1d1f;
+  margin-bottom: 16px;
+`;
+const ControlWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+`;
+const ControlTitle = styled.div`
+  margin-left: 12px;
+`;
+const InfoImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+  cursor: pointer;
+  user-select: none;
 `;
 export default FundCreate;
