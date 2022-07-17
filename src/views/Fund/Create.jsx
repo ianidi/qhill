@@ -31,30 +31,62 @@ const FundCreate = () => {
           <Dot />
           <div>Main info</div>
         </SectionTitle>
+
         <AvatarUploadContainer>
           <AvatarImageContainer>
             <img src={AvatarPlaceholderImage} alt="" />
           </AvatarImageContainer>
           <input type="file" style={{ display: "none" }} ref={fileInput} />
-          <ButtonUpload onClick={selectFile}>
+          <ButtonBlue onClick={selectFile}>
             <PlusImage />
             Upload new picture
-          </ButtonUpload>
+          </ButtonBlue>
         </AvatarUploadContainer>
-        <div>
-          hi
-          <FroalaEditorComponent
-            config={{
-              placeholderText: "placeholder",
-              charCounterCount: false,
-              heightMin: 150,
-            }}
-            tag="textarea"
-            model={value}
-            onModelChange={(val) => setValue(val)}
+
+        <Label>Name</Label>
+        <InputContainer>
+          <Input
+            defaultValue=""
+            type="text"
+            spellCheck={false}
+            autoComplete="off"
+            placeholder="Enter name"
           />
-          hi
-        </div>
+        </InputContainer>
+
+        <Label>Description</Label>
+        <FroalaEditorComponent
+          config={{
+            placeholderText: "placeholder",
+            charCounterCount: false,
+            heightMin: 150,
+          }}
+          tag="textarea"
+          model={value}
+          onModelChange={(val) => setValue(val)}
+        />
+        <Divider />
+
+        <SectionTitle>
+          <Dot />
+          <div>Commissions</div>
+        </SectionTitle>
+
+        <Divider />
+
+        <SectionTitle>
+          <Dot />
+          <div>White lists</div>
+        </SectionTitle>
+        <Divider />
+
+        <Description>
+          You're about to create a new deFund on Ethereum and will have to
+          confirm a transaction with your currently connected wallet. The
+          creation will cost approximately 0.08423 ETH. The exact amount will be
+          determined by your wallet.
+        </Description>
+        <ButtonBlue onClick={() => {}}>Confirm</ButtonBlue>
       </Container>
     </React.Fragment>
   );
@@ -96,12 +128,11 @@ const Dot = styled.div`
 const AvatarUploadContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 34px;
 `;
 const AvatarImageContainer = styled.div`
   margin-right: 32px;
 `;
-const ButtonUpload = styled.button`
+const ButtonBlue = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -123,5 +154,51 @@ const ButtonUpload = styled.button`
   &:hover {
     background: #3a8cf9;
   }
+`;
+const Label = styled.div`
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #33383f;
+  margin-top: 34px;
+  margin-bottom: 14px;
+`;
+const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background: #efefef;
+  margin-top: 48px;
+  margin-bottom: 48px;
+`;
+const Description = styled.div`
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.015em;
+  color: #6f767e;
+  margin-bottom: 48px;
+`;
+const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f4f4f4;
+  width: 100%;
+  max-width: 360px;
+  user-select: none;
+`;
+const Input = styled.input`
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.01em;
+  color: #1a1d1f;
+  background: #f4f4f4;
+  border: none;
+  outline: none;
+  text-decoration: none !important;
+  width: 100%;
 `;
 export default FundCreate;
