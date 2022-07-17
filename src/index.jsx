@@ -12,7 +12,6 @@ import { store } from "./Store/Store";
 import "./index.scss";
 import "overlayscrollbars/css/OverlayScrollbars.css";
 import "reactjs-popup/dist/index.css";
-import "react-popper-tooltip/dist/styles.css";
 
 configureRootTheme({ theme });
 

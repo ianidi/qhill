@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
+import { Popup } from "@yandex/ui/Popup/desktop/bundle";
 
 import { flexGap } from "../../Common/FlexGap";
 import Select from "../UI/Select";
@@ -9,53 +10,100 @@ import { ReactComponent as CommissionImage } from "../../Asset/Images/commission
 import { ReactComponent as InvestorsImage } from "../../Asset/Images/investors.svg";
 import { ReactComponent as PositiveImage } from "../../Asset/Images/positive.svg";
 import { ReactComponent as NegativeImage } from "../../Asset/Images/negative.svg";
+import { ReactComponent as FilterImage } from "../../Asset/Images/filter.svg";
 
-const TotalWidget = () => (
-  <Container>
-    <TitleContainer>
-      <Title>Total DeFunds’ indicators</Title>
-      <Select
-        //options={options.brand}
-        placeholder="This month"
-        //value={brand}
-        name="brand"
-        //setValue={(val) => dispatch(setBrand(val))}
-      />
-    </TitleContainer>
-    <WidgetContainer>
-      <AUMWidget>
-        <AUMImage />
-        <WidgetTitle>
-          AUM <WidgetCurrency>(USDT)</WidgetCurrency>
-        </WidgetTitle>
-        <WidgetValue>121212</WidgetValue>
-        <WidgetGrowth
-          value={444}
-          caption="USDT"
-          containerStyle={{ background: "#fff" }}
+const TotalWidget = () => {
+  const filterRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <Container>
+      <TitleContainer>
+        <Title>Total DeFunds’ indicators</Title>
+        <Select
+          //options={options.brand}
+          placeholder="This month"
+          //value={brand}
+          name="brand"
+          //setValue={(val) => dispatch(setBrand(val))}
+        />
+
+        <FilterImageContainer
+          ref={filterRef}
+          onClick={() => setVisible(!visible)}
         >
-          this month
-        </WidgetGrowth>
-      </AUMWidget>
-      <Widget>
-        <CommissionImage />
-        <WidgetTitle>
-          Сommission <WidgetCurrency>(USDT)</WidgetCurrency>
-        </WidgetTitle>
-        <WidgetValue>6969</WidgetValue>
-      </Widget>
-      <Widget>
-        <InvestorsImage />
-        <WidgetTitle>Investors</WidgetTitle>
-        <WidgetValue>55</WidgetValue>
-        <WidgetGrowth value={8} caption="investors" negative>
-          this month
-        </WidgetGrowth>
-      </Widget>
-    </WidgetContainer>
-  </Container>
-);
+          <FilterImage />
+        </FilterImageContainer>
+        <Popup
+          target="anchor"
+          anchor={filterRef}
+          view="default"
+          direction={["bottom-end"]}
+          visible={visible}
+          style={{ maxWidth: 280 }}
+          onClose={() => setVisible(false)}
+          scope="inplace"
+          motionless={true}
+        >
+          <FilterContainer>
+            <div className="tooltip__handle">Popup</div>
+          </FilterContainer>
+        </Popup>
+      </TitleContainer>
+      <WidgetContainer>
+        <AUMWidget>
+          <AUMImage />
+          <WidgetTitle>
+            AUM <WidgetCurrency>(USDT)</WidgetCurrency>
+          </WidgetTitle>
+          <WidgetValue>121212</WidgetValue>
+          <WidgetGrowth
+            value={444}
+            caption="USDT"
+            containerStyle={{ background: "#fff" }}
+          >
+            this month
+          </WidgetGrowth>
+        </AUMWidget>
+        <Widget>
+          <CommissionImage />
+          <WidgetTitle>
+            Сommission <WidgetCurrency>(USDT)</WidgetCurrency>
+          </WidgetTitle>
+          <WidgetValue>6969</WidgetValue>
+        </Widget>
+        <Widget>
+          <InvestorsImage />
+          <WidgetTitle>Investors</WidgetTitle>
+          <WidgetValue>55</WidgetValue>
+          <WidgetGrowth value={8} caption="investors" negative>
+            this month
+          </WidgetGrowth>
+        </Widget>
+      </WidgetContainer>
+    </Container>
+  );
+};
 
+const FilterImageContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #efefef;
+  border-radius: 8px;
+  margin-left: 16px;
+  background: #fff;
+  cursor: pointer;
+`;
+const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: #fcfcfc;
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
