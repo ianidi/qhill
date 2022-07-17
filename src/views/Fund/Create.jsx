@@ -13,6 +13,9 @@ import "froala-editor/css/froala_editor.pkgd.min.css";
 import "./Create.scss";
 
 import { flexGap } from "../../Common/FlexGap";
+import Select from "../../Components/UI/Select";
+import Tagify from "../../Components/UI/Tagify";
+import CreateModal from "../../Components/Modal/CreateModal";
 
 import AvatarPlaceholderImage from "../../Asset/Images/AvatarPlaceholder.png";
 import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
@@ -21,6 +24,7 @@ import { ReactComponent as InfoImage } from "../../Asset/Images/info.svg";
 const FundCreate = () => {
   const [value, setValue] = useState("");
   const [checked, setChecked] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const fileInput = useRef();
 
@@ -62,7 +66,7 @@ const FundCreate = () => {
         <Label>Description</Label>
         <FroalaEditorComponent
           config={{
-            placeholderText: "placeholder",
+            placeholderText: "Enter description",
             charCounterCount: false,
             heightMin: 150,
           }}
@@ -76,6 +80,170 @@ const FundCreate = () => {
           <Dot />
           <div>Commissions</div>
         </SectionTitle>
+
+        <CommissionInputContainer>
+          <CommissionInputWrapper>
+            <InputLabelContainer>
+              <div>Subscribtion fee (SF)</div>
+              <InfoImageContainer>
+                <TooltipStateful
+                  view="default"
+                  size="m"
+                  hasTail
+                  direction={["bottom", "right"]}
+                  content="Stateful hover"
+                >
+                  <div className="info__tooltip">
+                    <InfoImage />
+                  </div>
+                </TooltipStateful>
+              </InfoImageContainer>
+            </InputLabelContainer>
+            <InputCommissionContainer>
+              <InputBefore>%</InputBefore>
+              <InputWrapper>
+                <InputCommission
+                  defaultValue=""
+                  type="text"
+                  spellCheck={false}
+                  autoComplete="off"
+                />
+              </InputWrapper>
+            </InputCommissionContainer>
+          </CommissionInputWrapper>
+
+          <CommissionInputWrapper>
+            <InputLabelContainer>
+              <div>Management fee (MF)</div>
+              <InfoImageContainer>
+                <TooltipStateful
+                  view="default"
+                  size="m"
+                  hasTail
+                  direction={["bottom", "right"]}
+                  content="Stateful hover"
+                >
+                  <div className="info__tooltip">
+                    <InfoImage />
+                  </div>
+                </TooltipStateful>
+              </InfoImageContainer>
+            </InputLabelContainer>
+            <InputCommissionContainer>
+              <InputBefore>%</InputBefore>
+              <InputWrapper>
+                <InputCommission
+                  defaultValue=""
+                  type="text"
+                  spellCheck={false}
+                  autoComplete="off"
+                />
+              </InputWrapper>
+            </InputCommissionContainer>
+          </CommissionInputWrapper>
+
+          <CommissionInputWrapper>
+            <InputLabelContainer>
+              <div>Performance fee (PF)</div>
+              <InfoImageContainer>
+                <TooltipStateful
+                  view="default"
+                  size="m"
+                  hasTail
+                  direction={["bottom", "right"]}
+                  content="Stateful hover"
+                >
+                  <div className="info__tooltip">
+                    <InfoImage />
+                  </div>
+                </TooltipStateful>
+              </InfoImageContainer>
+            </InputLabelContainer>
+            <InputCommissionContainer>
+              <InputBefore>%</InputBefore>
+              <InputWrapper>
+                <InputCommission
+                  defaultValue=""
+                  type="text"
+                  spellCheck={false}
+                  autoComplete="off"
+                />
+              </InputWrapper>
+            </InputCommissionContainer>
+          </CommissionInputWrapper>
+
+          <CommissionInputWrapper>
+            <InputLabelContainer>
+              <div>Period</div>
+              <InfoImageContainer>
+                <TooltipStateful
+                  view="default"
+                  size="m"
+                  hasTail
+                  direction={["bottom", "right"]}
+                  content="Stateful hover"
+                >
+                  <div className="info__tooltip">
+                    <InfoImage />
+                  </div>
+                </TooltipStateful>
+              </InfoImageContainer>
+            </InputLabelContainer>
+            <Select
+              //options={options.brand}
+              placeholder="Period"
+              //value={brand}
+              name="brand"
+              //setValue={(val) => dispatch(setBrand(val))}
+            />
+          </CommissionInputWrapper>
+
+          <CommissionInputWrapper>
+            <InputLabelContainer>
+              <div>Indent</div>
+              <InfoImageContainer>
+                <TooltipStateful
+                  view="default"
+                  size="m"
+                  hasTail
+                  direction={["bottom", "right"]}
+                  content="Stateful hover"
+                >
+                  <div className="info__tooltip">
+                    <InfoImage />
+                  </div>
+                </TooltipStateful>
+              </InfoImageContainer>
+            </InputLabelContainer>
+            <Select
+              //options={options.brand}
+              placeholder="Indent"
+              //value={brand}
+              name="brand"
+              //setValue={(val) => dispatch(setBrand(val))}
+            />
+          </CommissionInputWrapper>
+        </CommissionInputContainer>
+
+        <TumblerControlContainer>
+          <ControlWrapper onClick={() => setChecked(!checked)}>
+            <div>HWM</div>
+            <TumblerInfoImageContainer>
+              <TooltipStateful
+                view="default"
+                size="m"
+                hasTail
+                direction={["bottom", "right"]}
+                content="Stateful hover"
+              >
+                <div className="info__tooltip">
+                  <InfoImage />
+                </div>
+              </TooltipStateful>
+            </TumblerInfoImageContainer>
+            <Tumbler label={false} size="l" view="default" checked={checked} />
+          </ControlWrapper>
+        </TumblerControlContainer>
 
         <Divider />
 
@@ -104,6 +272,65 @@ const FundCreate = () => {
           </InfoImageContainer>
         </ControlContainer>
 
+        <ControlContainer>
+          <ControlWrapper onClick={() => setChecked(!checked)}>
+            <Checkbox label={false} size="m" view="default" checked={checked} />
+            <ControlTitle>TOP50 cap to BTC</ControlTitle>
+          </ControlWrapper>
+          <InfoImageContainer>
+            <TooltipStateful
+              view="default"
+              size="m"
+              hasTail
+              direction={["bottom", "right"]}
+              content="Stateful hover"
+            >
+              <div className="info__tooltip">
+                <InfoImage />
+              </div>
+            </TooltipStateful>
+          </InfoImageContainer>
+        </ControlContainer>
+
+        <ControlContainer>
+          <ControlWrapper onClick={() => setChecked(!checked)}>
+            <Checkbox label={false} size="m" view="default" checked={checked} />
+            <ControlTitle>TOP50 cap to USDT/USDC/DAI</ControlTitle>
+          </ControlWrapper>
+          <InfoImageContainer>
+            <TooltipStateful
+              view="default"
+              size="m"
+              hasTail
+              direction={["bottom", "right"]}
+              content="Stateful hover"
+            >
+              <div className="info__tooltip">
+                <InfoImage />
+              </div>
+            </TooltipStateful>
+          </InfoImageContainer>
+        </ControlContainer>
+
+        <TooltipLabelContainer>
+          <div>Trading pairs</div>
+          <InfoImageContainer>
+            <TooltipStateful
+              view="default"
+              size="m"
+              hasTail
+              direction={["bottom", "right"]}
+              content="Stateful hover"
+            >
+              <div className="info__tooltip">
+                <InfoImage />
+              </div>
+            </TooltipStateful>
+          </InfoImageContainer>
+        </TooltipLabelContainer>
+
+        <Tagify />
+
         <Divider />
 
         <Description>
@@ -112,8 +339,9 @@ const FundCreate = () => {
           creation will cost approximately 0.08423 ETH. The exact amount will be
           determined by your wallet.
         </Description>
-        <ButtonBlue onClick={() => {}}>Confirm</ButtonBlue>
+        <ButtonBlue onClick={() => setVisible(true)}>Confirm</ButtonBlue>
       </Container>
+      <CreateModal visible={visible} setVisible={setVisible} />
     </React.Fragment>
   );
 };
@@ -252,8 +480,93 @@ const InfoImageContainer = styled.div`
   justify-content: center;
   width: 24px;
   height: 24px;
-  margin-left: 4px;
+  margin-left: 2px;
   cursor: pointer;
   user-select: none;
 `;
+const TooltipLabelContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #33383f;
+  margin-top: 18px;
+  margin-bottom: 18px;
+`;
+const InputLabelContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #6f767e;
+  margin-bottom: 12px;
+`;
+const CommissionInputContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  ${flexGap({ row: "32px", column: "8px" })}
+`;
+const CommissionInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(33.33% - 16px);
+`;
+const InputCommissionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  /* padding: 12px; */
+  border-radius: 12px;
+  border: 2px solid #efefef;
+  background: #fff;
+  width: 100%;
+  user-select: none;
+  overflow: hidden;
+`;
+const InputCommission = styled.input`
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.01em;
+  color: #1a1d1f;
+  background: #fff;
+  border: none;
+  outline: none;
+  text-decoration: none !important;
+  width: 100%;
+`;
+const InputBefore = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #f4f4f4;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #6f767e;
+`;
+const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  background: #fff;
+  padding: 12px;
+`;
+const TumblerControlContainer = styled(ControlContainer)`
+  margin-top: 32px;
+  margin-bottom: 0;
+`;
+const TumblerInfoImageContainer = styled(InfoImageContainer)`
+  margin-right: 12px;
+`;
+
 export default FundCreate;
