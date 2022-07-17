@@ -88,7 +88,7 @@ const ButtonCreate = styled.button`
   justify-content: center;
   align-items: center;
   padding: 12px 20px;
-  ${flexGap("8px")}
+  ${flexGap({ row: "8px", column: "8px" })}
   background: #2a85ff;
   border-radius: 12px;
   font-weight: 700;
@@ -107,7 +107,7 @@ const WidgetContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  ${flexGap("24px")}
+  ${flexGap({ row: "24px", column: "24px" })}
 `;
 
 export default ListWidget;

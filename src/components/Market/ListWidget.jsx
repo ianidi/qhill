@@ -135,7 +135,7 @@ const WidgetContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  ${flexGap("24px")}
+  ${flexGap({ row: "24px", column: "24px" })}
 `;
 
 export default ListWidget;

@@ -3,11 +3,11 @@ import styled from "styled-components";
 import WalletModal from "../Modal/Wallet";
 
 const Navbar = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   return (
     <Container>
-      menu
-      <WalletModal />
+      <div onClick={() => setVisible(true)}>Open menu</div>
+      <WalletModal visible={visible} setVisible={setVisible} />
     </Container>
   );
 };

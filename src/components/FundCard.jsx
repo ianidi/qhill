@@ -267,7 +267,7 @@ const NetworkContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 16px;
-  ${flexGap("8px")}
+  ${flexGap({ row: "8px", column: "8px" })}
 `;
 const NetworkItem = styled.div`
   display: flex;
@@ -284,14 +284,14 @@ const NetworkItem = styled.div`
   line-height: 16px;
   letter-spacing: -0.01em;
   color: #1a1d1f;
-  ${flexGap("4px")}
+  ${flexGap({ row: "4px", column: "4px" })}
 `;
 const TableContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 10px;
-  ${flexGap("16px")}
+  ${flexGap({ row: "16px", column: "16px" })}
 `;
 const TableColumn = styled.div`
   display: flex;
@@ -329,7 +329,7 @@ const Clock = styled.div`
   display: flex;
   color: #1a1d1f;
   margin-top: 6px;
-  ${flexGap("4px")}
+  ${flexGap({ row: "4px", column: "4px" })}
 `;
 const ClockItem = styled.div`
   padding: 0px 7px;
@@ -350,7 +350,7 @@ const ButtonsContainer = styled.div`
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 16px;
-  ${flexGap("16px")}
+  ${flexGap({ row: "16px", column: "16px" })}
 `;
 const ButtonDetails = styled.button`
   display: flex;

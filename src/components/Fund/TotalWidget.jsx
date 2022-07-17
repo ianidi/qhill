@@ -84,7 +84,7 @@ const WidgetContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  ${flexGap("20px")}
+  ${flexGap({ row: "20px", column: "20px" })}
 `;
 const Widget = styled.div`
   display: flex;

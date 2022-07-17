@@ -4,22 +4,23 @@ let _detectedFlexGapSupported = false;
 let _isFlexGapSupported = false;
 //TODO: js-cookie
 
-export const flexGap = (gap) => {
+export const flexGap = ({ row, column }) => {
   if (checkFlexGapSupported()) {
     return css`
-      gap: ${gap};
+      row-gap: ${row};
+      column-gap: ${column};
     `;
   }
-  return flexGapPolyfill(gap);
+  return flexGapPolyfill({ row, column });
 };
 
-export const flexGapPolyfill = (gap) => {
+export const flexGapPolyfill = ({ row, column }) => {
   return css`
-    margin-left: -${gap};
-    margin-top: -${gap};
+    margin-left: -${row};
+    margin-top: -${column};
     & > * {
-      margin-left: ${gap};
-      margin-top: ${gap};
+      margin-left: ${row};
+      margin-top: ${column};
     }
   `;
 };

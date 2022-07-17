@@ -171,7 +171,7 @@ const ButtonsContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 24px;
-  ${flexGap("16px")}
+  ${flexGap({ row: "16px", column: "16px" })}
 `;
 const ButtonReset = styled.button`
   display: flex;
