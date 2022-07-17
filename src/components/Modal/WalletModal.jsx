@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Modal } from "@yandex/ui/Modal/desktop/bundle";
 
 import { flexGap } from "../../Common/FlexGap";
-import "./Wallet.scss";
+import "./WalletModal.scss";
 
 import { ReactComponent as BackImage } from "../../Asset/Images/back.svg";
 import { ReactComponent as CloseImage } from "../../Asset/Images/close.svg";

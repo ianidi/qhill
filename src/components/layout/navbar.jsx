@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import WalletModal from "../Modal/Wallet";
+import WalletModal from "../Modal/WalletModal";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);

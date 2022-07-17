@@ -1,33 +1,38 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import FundCard from "../FundCard";
 import { flexGap } from "../../Common/FlexGap";
 
 import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
 
-const ListWidget = () => (
-  <Container>
-    <Head>
-      <SwitchTitleContainer>
-        <Title>Managed DeFunds</Title>
-        <SwitchContainer>
-          <SwitchItem active>Active</SwitchItem>
-          <SwitchItem>Closed</SwitchItem>
-        </SwitchContainer>
-      </SwitchTitleContainer>
+const ListWidget = () => {
+  const navigate = useNavigate();
 
-      <ButtonCreate>
-        <PlusImage />
-        Create DeFund
-      </ButtonCreate>
-    </Head>
-    <WidgetContainer>
-      <FundCard />
-      <FundCard />
-    </WidgetContainer>
-  </Container>
-);
+  return (
+    <Container>
+      <Head>
+        <SwitchTitleContainer>
+          <Title>Managed DeFunds</Title>
+          <SwitchContainer>
+            <SwitchItem active>Active</SwitchItem>
+            <SwitchItem>Closed</SwitchItem>
+          </SwitchContainer>
+        </SwitchTitleContainer>
+
+        <ButtonCreate onClick={() => navigate("/fund/create")}>
+          <PlusImage />
+          Create DeFund
+        </ButtonCreate>
+      </Head>
+      <WidgetContainer>
+        <FundCard />
+        <FundCard />
+      </WidgetContainer>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import { flexGap } from "../../Common/FlexGap";
 
@@ -8,17 +9,21 @@ import oops2x from "../../Asset/Images/oops@2x.png";
 import oops3x from "../../Asset/Images/oops@3x.png";
 import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
 
-const Empty = () => (
-  <Container>
-    <img src={oops} srcSet={`${oops2x} 2x, ${oops3x} 3x`} alt="" />
-    <Title>You haven’t created any DeFunds yet</Title>
-    <Caption>Create the DeFund and start trading</Caption>
-    <ButtonCreate>
-      <PlusImage />
-      Create DeFund
-    </ButtonCreate>
-  </Container>
-);
+const Empty = () => {
+  const navigate = useNavigate();
+
+  return (
+    <Container>
+      <img src={oops} srcSet={`${oops2x} 2x, ${oops3x} 3x`} alt="" />
+      <Title>You haven’t created any DeFunds yet</Title>
+      <Caption>Create the DeFund and start trading</Caption>
+      <ButtonCreate onClick={() => navigate("/fund/create")}>
+        <PlusImage />
+        Create DeFund
+      </ButtonCreate>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;
