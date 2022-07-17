@@ -4,6 +4,7 @@ import { Popup } from "@yandex/ui/Popup/desktop/bundle";
 
 import { flexGap } from "../../Common/FlexGap";
 import Select from "../UI/Select";
+import Filter from "../Filter";
 
 import { ReactComponent as AUMImage } from "../../Asset/Images/aum.svg";
 import { ReactComponent as CommissionImage } from "../../Asset/Images/commission.svg";
@@ -40,14 +41,11 @@ const TotalWidget = () => {
           view="default"
           direction={["bottom-end"]}
           visible={visible}
-          style={{ maxWidth: 280 }}
           onClose={() => setVisible(false)}
           scope="inplace"
           motionless={true}
         >
-          <FilterContainer>
-            <div className="tooltip__handle">Popup</div>
-          </FilterContainer>
+          <Filter setVisible={setVisible} />
         </Popup>
       </TitleContainer>
       <WidgetContainer>
@@ -97,12 +95,6 @@ const FilterImageContainer = styled.div`
   margin-left: 16px;
   background: #fff;
   cursor: pointer;
-`;
-const FilterContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  background: #fcfcfc;
 `;
 const Container = styled.div`
   display: flex;
