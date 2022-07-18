@@ -3,18 +3,20 @@ import styled from "styled-components";
 
 import { flexGap } from "../../Common/FlexGap";
 import Select from "../UI/Select";
+import Numeral from "../UI/Numeral";
 
-import { ReactComponent as AUMImage } from "../../Asset/Images/aum.svg";
+import { ReactComponent as GrowthImage } from "../../Asset/Images/growth.svg";
+import { ReactComponent as BarsImage } from "../../Asset/Images/bars.svg";
 import { ReactComponent as CommissionImage } from "../../Asset/Images/commission.svg";
-import { ReactComponent as InvestorsImage } from "../../Asset/Images/investors.svg";
-import { ReactComponent as PositiveImage } from "../../Asset/Images/positive.svg";
-import { ReactComponent as NegativeImage } from "../../Asset/Images/negative.svg";
 
 const TotalWidget = () => {
   return (
     <Container>
-      <TitleContainer>
-        <Title>Total DeFunds’ indicators</Title>
+      <Head>
+        <TitleContainer>
+          <Dot />
+          <Title>Summary Investments indicators</Title>
+        </TitleContainer>
         <Select
           //options={options.brand}
           placeholder="This month"
@@ -22,36 +24,51 @@ const TotalWidget = () => {
           name="brand"
           //setValue={(val) => dispatch(setBrand(val))}
         />
-      </TitleContainer>
+      </Head>
       <WidgetContainer>
         <AUMWidget>
-          <AUMImage />
+          <GrowthImage />
           <WidgetTitle>
-            AUM <WidgetCurrency>(USDT)</WidgetCurrency>
+            Сurrent investments <WidgetCurrency>(USDT)</WidgetCurrency>
           </WidgetTitle>
-          <WidgetVal>121212</WidgetVal>
-          <WidgetGrowth
-            value={444}
-            caption="USDT"
-            containerStyle={{ background: "#fff" }}
-          >
-            this month
-          </WidgetGrowth>
+          <WidgetVal>
+            <Numeral>121212</Numeral>
+          </WidgetVal>
+          <WidgetGrowthContainer>
+            <WidgetGrowth
+              value={444}
+              caption="USDT"
+              containerStyle={{ background: "#fff" }}
+            >
+              invested
+            </WidgetGrowth>
+            <WidgetGrowth
+              value={-900}
+              caption="USDT"
+              containerStyle={{ background: "#fff" }}
+              negative
+            >
+              withdrawn
+            </WidgetGrowth>
+          </WidgetGrowthContainer>
         </AUMWidget>
+        <Widget>
+          <BarsImage />
+          <WidgetTitle>
+            Profit or loss <WidgetCurrency>(USDT)</WidgetCurrency>
+          </WidgetTitle>
+          <WidgetVal positive>
+            +<Numeral>212</Numeral>
+          </WidgetVal>
+        </Widget>
         <Widget>
           <CommissionImage />
           <WidgetTitle>
-            Сommission <WidgetCurrency>(USDT)</WidgetCurrency>
+            Profitability <WidgetCurrency>(%)</WidgetCurrency>
           </WidgetTitle>
-          <WidgetVal>6969</WidgetVal>
-        </Widget>
-        <Widget>
-          <InvestorsImage />
-          <WidgetTitle>Investors</WidgetTitle>
-          <WidgetVal>55</WidgetVal>
-          <WidgetGrowth value={8} caption="investors" negative>
-            this month
-          </WidgetGrowth>
+          <WidgetVal negative>
+            -<Numeral>55</Numeral>
+          </WidgetVal>
         </Widget>
       </WidgetContainer>
     </Container>
@@ -66,11 +83,22 @@ const Container = styled.div`
   margin-bottom: 8px;
   background: #fcfcfc;
 `;
-const TitleContainer = styled.div`
+const Head = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
+`;
+const TitleContainer = styled.div`
+  display: flex;
+  padding-right: 20px;
+`;
+const Dot = styled.div`
+  margin-right: 16px;
+  width: 16px;
+  height: 32px;
+  background: #68cb84;
+  border-radius: 4px;
 `;
 const Title = styled.div`
   padding-right: 20px;
@@ -106,8 +134,8 @@ const Widget = styled.div`
   }
 `;
 const AUMWidget = styled(Widget)`
-  background: #efedfd;
-  border: 2px solid #efedfd;
+  background: #eaf6ef;
+  border: 2px solid #eaf6ef;
 `;
 const WidgetTitle = styled.div`
   margin-top: 16px;
@@ -126,7 +154,8 @@ const WidgetVal = styled.div`
   font-size: 48px;
   line-height: 48px;
   letter-spacing: -0.03em;
-  color: #1a1d1f;
+  color: ${(item) =>
+    item.negative ? "#d53a3a" : item.positive ? "#68CB84" : "#1a1d1f"};
 `;
 
 const WidgetGrowth = ({
@@ -139,24 +168,24 @@ const WidgetGrowth = ({
   return (
     <WidgetGrowthWrapper style={containerStyle}>
       {negative ? (
-        <React.Fragment>
-          <NegativeImage />
-          <WidgetValue negative>
-            {value} {caption}
-          </WidgetValue>
-        </React.Fragment>
+        <WidgetValue negative>
+          {value} {caption}
+        </WidgetValue>
       ) : (
-        <React.Fragment>
-          <PositiveImage />
-          <WidgetValue positive>
-            {value} {caption}
-          </WidgetValue>
-        </React.Fragment>
+        <WidgetValue positive>
+          {value} {caption}
+        </WidgetValue>
       )}
       &nbsp;{children}
     </WidgetGrowthWrapper>
   );
 };
+const WidgetGrowthContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  ${flexGap({ row: "3px", column: "3px" })}
+`;
 const WidgetGrowthWrapper = styled.div`
   display: flex;
   align-items: center;

@@ -9,6 +9,7 @@ import Navbar from "./Components/Layout/Navbar";
 import Market from "./Views/Market";
 import Fund from "./Views/Fund/Fund";
 import FundCreate from "./Views/Fund/Create";
+import Investment from "./Views/Investment/Investment";
 
 const Page = () => (
   <React.Fragment>
@@ -40,6 +41,7 @@ function App() {
               <Route path="/market" element={<Market />} />
               <Route path="/fund" element={<Fund />} />
               <Route path="/fund/create" element={<FundCreate />} />
+              <Route path="/investment" element={<Investment />} />
               <Route path="page/:key" element={<Page />} />
             </Routes>
           </Content>
