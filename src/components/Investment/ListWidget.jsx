@@ -1,15 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 import FundCard from "../FundCard";
 import { flexGap } from "../../Common/FlexGap";
 
-import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
-
 const ListWidget = () => {
-  const navigate = useNavigate();
-
   return (
     <Container>
       <Head>
@@ -81,27 +76,6 @@ const SwitchItem = styled.div`
   transition: all 300ms;
   &:hover {
     background: #e4e4e4;
-  }
-`;
-const ButtonCreate = styled.button`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 20px;
-  ${flexGap({ row: "8px", column: "8px" })}
-  background: #2a85ff;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-  transition: all 300ms;
-  cursor: pointer;
-  user-select: none;
-  &:hover {
-    background: #3a8cf9;
   }
 `;
 const WidgetContainer = styled.div`
