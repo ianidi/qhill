@@ -4,36 +4,45 @@ import { useNavigate } from "react-router-dom";
 
 import { flexGap } from "../../Common/FlexGap";
 
-import oops from "../../Asset/Images/oops.png";
-import oops2x from "../../Asset/Images/oops@2x.png";
-import oops3x from "../../Asset/Images/oops@3x.png";
-import { ReactComponent as PlusImage } from "../../Asset/Images/plus.svg";
+import hand from "../../Asset/Images/hand.png";
+import hand2x from "../../Asset/Images/hand@2x.png";
+import hand3x from "../../Asset/Images/hand@3x.png";
+import { ReactComponent as CloseImage } from "../../Asset/Images/close.svg";
 
-const Empty = () => {
+const Success = ({ setVisible }) => {
   const navigate = useNavigate();
 
   return (
-    <Container>
-      <img src={oops} srcSet={`${oops2x} 2x, ${oops3x} 3x`} alt="" />
-      <Title>You haven’t created any DeFunds yet</Title>
-      <Caption>Create the DeFund and start trading</Caption>
-      <ButtonBlue onClick={() => navigate("/fund/create")}>
-        <PlusImage />
-        Create DeFund
-      </ButtonBlue>
-    </Container>
+    <React.Fragment>
+      <Head>
+        <CloseContainer onClick={() => setVisible(false)}>
+          <CloseImage />
+        </CloseContainer>
+      </Head>
+      <Container>
+        <img src={hand} srcSet={`${hand2x} 2x, ${hand3x} 3x`} alt="" />
+        <Title>Success!</Title>
+        <Caption>DeFund “MidCapCoin” was successfully created</Caption>{" "}
+        <ButtonBlue onClick={() => navigate("/fund")}>Done!</ButtonBlue>
+      </Container>
+    </React.Fragment>
   );
 };
 
+const Head = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+const CloseContainer = styled.div`
+  cursor: pointer;
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  border-radius: 8px;
-  min-height: calc(100vh - 180px);
-  background: #fcfcfc;
 `;
 const Title = styled.div`
   font-weight: 600;
@@ -44,6 +53,7 @@ const Title = styled.div`
   text-align: center;
   letter-spacing: -0.03em;
   color: #1a1d1f;
+  margin-top: 20px;
 `;
 const Caption = styled.div`
   font-weight: 500;
@@ -75,4 +85,5 @@ const ButtonBlue = styled.button`
     background: #3a8cf9;
   }
 `;
-export default Empty;
+
+export default Success;

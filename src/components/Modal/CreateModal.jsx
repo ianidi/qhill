@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Modal } from "@yandex/ui/Modal/desktop/bundle";
 import { Checkbox } from "@yandex/ui/Checkbox/desktop/bundle";
 
+import Success from "./Success";
 import { flexGap } from "../../Common/FlexGap";
 import "./WalletModal.scss";
 
@@ -22,7 +23,7 @@ const CreateModal = ({ visible, setVisible }) => {
     >
       <Container>
         {click ? (
-          <div></div>
+          <Success setVisible={setVisible} />
         ) : (
           <React.Fragment>
             <Head>
