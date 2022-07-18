@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useRef, useLayoutEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
@@ -17,7 +17,14 @@ const Page = () => (
   </React.Fragment>
 );
 
-function App() {
+const App = () => {
+  const location = useLocation();
+  const OSComponentRef = useRef(null);
+
+  useLayoutEffect(() => {
+    OSComponentRef.current.osInstance().scroll({ top: 0 });
+  }, [location.pathname]);
+
   return (
     <Layout>
       <SidebarContainer>
@@ -33,6 +40,7 @@ function App() {
           }}
           style={{ maxHeight: "calc(100vh - 100px)" }}
           className="os-theme-thin-dark"
+          ref={OSComponentRef}
         >
           <Content>
             <Routes>
@@ -48,7 +56,7 @@ function App() {
       </ContentContainer>
     </Layout>
   );
-}
+};
 
 const Layout = styled.div`
   height: 100vh;
