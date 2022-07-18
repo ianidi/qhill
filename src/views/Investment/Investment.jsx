@@ -1,13 +1,15 @@
 import React from "react";
 // import styled from "styled-components";
 
-import Empty from "../../Components/Investment/Empty";
 import TotalWidget from "../../Components/Investment/TotalWidget";
-import ListWidget from "../../Components/Fund/ListWidget";
+import IncomeWidget from "../../Components/Investment/IncomeWidget";
+import ListWidget from "../../Components/Investment/ListWidget";
+import Empty from "../../Components/Investment/Empty";
 
 const Investment = () => (
   <React.Fragment>
     <TotalWidget />
+    <IncomeWidget />
     <ListWidget />
     <Empty />
   </React.Fragment>
