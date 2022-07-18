@@ -1243,3 +1243,15 @@ body {
     0px 32px 48px -8px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(32px);
 }
+
+/* Froala editor */
+
+#fr-logo {
+  display: none;
+}
+
+.info__tooltip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

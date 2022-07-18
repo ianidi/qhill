@@ -10,7 +10,6 @@ import "froala-editor/js/plugins.pkgd.min.js";
 
 import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
-import "./Create.scss";
 
 import { flexGap } from "../../Common/FlexGap";
 import Select from "../../Components/UI/Select";
