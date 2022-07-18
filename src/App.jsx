@@ -27,12 +27,11 @@ function App() {
         <Navbar />
       </NavbarContainer>
       <ContentContainer>
-        <NavbarPlaceholder />
         <OverlayScrollbarsComponent
           options={{
             scrollbars: { autoHide: "never" },
           }}
-          style={{ maxHeight: "100vh" }}
+          style={{ maxHeight: "calc(100vh - 100px)" }}
           className="os-theme-thin-dark"
         >
           <Content>
@@ -57,6 +56,10 @@ const Layout = styled.div`
 `;
 
 const SidebarContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   height: 100vh;
   background-color: #fff;
   width: 270px;
@@ -85,11 +88,11 @@ const NavbarContainer = styled.div`
   }
 `;
 
-const NavbarPlaceholder = styled.div`
-  height: 100px;
-`;
-
 const ContentContainer = styled.div`
+  position: fixed;
+  top: 100px;
+  right: 0;
+  bottom: 0;
   width: calc(100% - 270px);
   @media screen and (min-width: 1480px) {
     width: calc(100% - 140px);
@@ -97,7 +100,7 @@ const ContentContainer = styled.div`
 `;
 
 const Content = styled.div`
-  min-height: calc(100vh - 180px);
+  /* min-height: calc(100vh + 500px); */
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 40px;
