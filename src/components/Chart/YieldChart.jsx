@@ -19,7 +19,7 @@ class AreaChart extends React.Component {
           type: "gradient",
           opacity: 0.3,
           gradient: {
-            opacityFrom: 1,
+            opacityFrom: 0,
             opacityTo: 0,
           },
         },
@@ -30,7 +30,7 @@ class AreaChart extends React.Component {
           //     },
           //   },
           width: "100%",
-          height: "200px",
+          height: "250px",
           toolbar: {
             show: false,
           },
@@ -41,14 +41,14 @@ class AreaChart extends React.Component {
             color: "#2fa8ec",
           },
           sparkline: {
-            enabled: true,
+            //enabled: true,
           },
         },
         dataLabels: {
-          enabled: false,
+          //enabled: false,
         },
         legend: {
-          show: false,
+          //show: false,
         },
         stroke: {
           curve: "smooth",
@@ -63,13 +63,14 @@ class AreaChart extends React.Component {
           },
         },
         yaxis: {
+          tickAmount: 4,
           min: 0,
           labels: {
-            formatter: (value) => `currency${value}`,
+            formatter: (value) => (Math.round(value * 100) / 100).toFixed(2),
           },
         },
         grid: {
-          show: false,
+          //show: false,
         },
         tooltip: {
           x: {
@@ -124,7 +125,7 @@ class AreaChart extends React.Component {
       <Chart
         options={this.state.options}
         series={series}
-        height="200px"
+        height="250px"
         width="100%"
         type="area"
         style={{ width: "100%" }}
