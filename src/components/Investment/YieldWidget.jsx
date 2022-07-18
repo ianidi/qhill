@@ -21,6 +21,37 @@ const YieldWidget = () => {
             <Title>Return summary</Title>
           </TitleContainer>
         </Head>
+        <TitleRow>
+          <div>Max drawdown</div>
+          <div>72%</div>
+        </TitleRow>
+        <CaptionRow>
+          <div>Current</div>
+          <div>9%</div>
+        </CaptionRow>
+        <Divider />
+        <TitleRow>
+          <div>All time income</div>
+          <div>136%</div>
+        </TitleRow>
+        <CaptionRow>
+          <div>Max</div>
+          <div>147%</div>
+        </CaptionRow>
+        <Divider />
+        <TitleRow>
+          <div>Max drawdown</div>
+          <div>84 days</div>
+        </TitleRow>
+        <CaptionRow>
+          <div>Current</div>
+          <div>21 days</div>
+        </CaptionRow>
+        <Divider />
+        <TitleRow>
+          <div>Sharpe ratio</div>
+          <div>2</div>
+        </TitleRow>
       </ROIContainer>
     </Container>
   );
@@ -73,18 +104,33 @@ const Title = styled.div`
   letter-spacing: -0.02em;
   color: #1a1d1f;
 `;
-const TableHead = styled.div`
-  background: #ffffff;
-  padding: 12px;
-  min-height: 52px;
+const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background: #efefef;
+  margin-top: 8px;
+  margin-bottom: 8px;
+`;
+const TitleRow = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 12px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
   letter-spacing: -0.01em;
-  color: #6f767e;
-  ${flexGap({ row: "12px", column: "8px" })}
+  color: #1a1d1f;
+`;
+const CaptionRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #9a9fa5;
 `;
 
 export default YieldWidget;
