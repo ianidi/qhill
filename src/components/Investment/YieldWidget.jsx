@@ -1,19 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
+import YieldChart from "../Chart/YieldChart";
 import { flexGap } from "../../Common/FlexGap";
 
 const YieldWidget = () => {
   return (
     <Container>
-      <ChartContainer>
+      <ChartWidgetContainer>
         <Head>
           <TitleContainer>
             <Dot />
             <Title>Chart of yield</Title>
           </TitleContainer>
         </Head>
-      </ChartContainer>
+
+        <ChartContainer>
+          <YieldChart type="invest" />
+        </ChartContainer>
+      </ChartWidgetContainer>
       <ROIContainer>
         <Head>
           <TitleContainer>
@@ -63,13 +68,18 @@ const Container = styled.div`
   ${flexGap({ row: "8px", column: "8px" })}
   margin-bottom: 8px;
 `;
-const ChartContainer = styled.div`
+const ChartWidgetContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(67% - 4px);
   padding: 24px;
   border-radius: 8px;
   background: #fcfcfc;
+`;
+const ChartContainer = styled.div`
+  display: block;
+  width: 100%;
+  overflow: visible;
 `;
 const ROIContainer = styled.div`
   display: flex;
