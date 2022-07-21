@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Modal } from "@yandex/ui/Modal/desktop/bundle";
+import { useWeb3React } from "@web3-react/core";
 
+import { Web3Context } from "../../index";
 import { flexGap } from "../../Common/FlexGap";
 import "./WalletModal.scss";
 
@@ -9,22 +11,39 @@ import { ReactComponent as BackImage } from "../../Asset/Images/back.svg";
 import { ReactComponent as CloseImage } from "../../Asset/Images/close.svg";
 import { ReactComponent as WalletImage } from "../../Asset/Images/Wallet/metamask.svg";
 
-const wallet = [
-  { title: "MetaMask" },
-  { title: "Torus" },
-  { title: "WalletConnect" },
-  { title: "Opera" },
-  { title: "Trezor" },
-  { title: "Fortmatic" },
-  { title: "Ledger" },
-  { title: "Authereum" },
-  { title: "Keystone" },
-  { title: "Coinbase Wallet" },
-  { title: "Portis" },
-];
-
 const WalletModal = ({ visible, setVisible }) => {
   const [click, setClick] = useState(false);
+  const { CoinbaseWallet, WalletConnect, Injected } = useContext(Web3Context);
+  const { activate, deactivate } = useWeb3React();
+
+  const wallet = [
+    {
+      title: "MetaMask",
+      onClick: () => {
+        activate(Injected);
+      },
+    },
+    // { title: "Torus" },
+    {
+      title: "WalletConnect",
+      onClick: () => {
+        activate(WalletConnect);
+      },
+    },
+    // { title: "Opera" },
+    // { title: "Trezor" },
+    // { title: "Fortmatic" },
+    // { title: "Ledger" },
+    // { title: "Authereum" },
+    // { title: "Keystone" },
+    {
+      title: "Coinbase Wallet",
+      onClick: () => {
+        activate(CoinbaseWallet);
+      },
+    },
+    // { title: "Portis" },
+  ];
 
   return (
     <Modal
@@ -53,7 +72,7 @@ const WalletModal = ({ visible, setVisible }) => {
             </Caption>
             <WalletContainer>
               {wallet.map((wallet, index) => (
-                <WalletItem key={index} onClick={() => setClick(true)}>
+                <WalletItem key={index} onClick={wallet.onClick}>
                   <WalletImageContainer>
                     <WalletImage />
                   </WalletImageContainer>
