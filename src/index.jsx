@@ -10,6 +10,7 @@ import { Web3Provider } from "@ethersproject/providers";
 import { WalletLinkConnector } from "@web3-react/walletlink-connector";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { InjectedConnector } from "@web3-react/injected-connector";
+import { Buffer } from "buffer";
 
 import App from "./App";
 import { store } from "./Store/Store";
@@ -17,6 +18,8 @@ import { store } from "./Store/Store";
 import "./index.scss";
 import "overlayscrollbars/css/OverlayScrollbars.css";
 import "reactjs-popup/dist/index.css";
+
+window.Buffer = window.Buffer || Buffer;
 
 configureRootTheme({ theme });
 
@@ -26,7 +29,7 @@ function getLibrary(provider) {
 
 const CoinbaseWallet = new WalletLinkConnector({
   url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
-  appName: "Web3-react Demo",
+  appName: "qhill",
   supportedChainIds: [1, 3, 4, 5, 42],
 });
 
@@ -40,17 +43,13 @@ const Injected = new InjectedConnector({
   supportedChainIds: [1, 3, 4, 5, 42],
 });
 
-export const Web3Context = React.createContext({
-  CoinbaseWallet,
-  WalletConnect,
-  Injected,
-});
+export const Web3Context = React.createContext();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Web3Context.Provider value={Web3Context}>
+      <Web3Context.Provider value={{ CoinbaseWallet, WalletConnect, Injected }}>
         <HashRouter>
           <ToastContainer
             position="top-right"
