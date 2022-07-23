@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import { useWeb3React } from "@web3-react/core";
 
 import "./Sidebar.scss";
 import { ReactComponent as LogoImage } from "../../Asset/Images/logo.svg";
@@ -9,35 +10,47 @@ import { ReactComponent as MarketImage } from "../../Asset/Images/market.svg";
 import { ReactComponent as FundImage } from "../../Asset/Images/fund.svg";
 import { ReactComponent as InvestmentImage } from "../../Asset/Images/investment.svg";
 
-const Sidebar = () => (
-  <Container>
-    <Logo>
-      <NavLink to="/">
-        <LogoImage style={{ width: 163, height: 48 }} />
-      </NavLink>
-    </Logo>
-    <div>
-      <OverlayScrollbarsComponent
-        options={{
-          scrollbars: { autoHide: "never" },
-        }}
-        style={{ maxHeight: "80vh" }}
-        className="os-theme-thin-dark"
-      >
-        <MenuItem icon={<MarketImage />} title="DeFunds Market" to="/market" />
-        <MenuItem icon={<FundImage />} title="My DeFunds" to="/fund" />
-        <MenuItem
-          icon={<InvestmentImage />}
-          title="My Investments"
-          to="/investment"
-        />
-      </OverlayScrollbarsComponent>
-    </div>
-    <ThemeContainer>
-      <Theme>Dark / light theme</Theme>
-    </ThemeContainer>
-  </Container>
-);
+const Sidebar = () => {
+  const { active } = useWeb3React();
+
+  return (
+    <Container>
+      <Logo>
+        <NavLink to="/">
+          <LogoImage style={{ width: 163, height: 48 }} />
+        </NavLink>
+      </Logo>
+      <div>
+        <OverlayScrollbarsComponent
+          options={{
+            scrollbars: { autoHide: "never" },
+          }}
+          style={{ maxHeight: "80vh" }}
+          className="os-theme-thin-dark"
+        >
+          <MenuItem
+            icon={<MarketImage />}
+            title="DeFunds Market"
+            to="/market"
+          />
+          {active && (
+            <React.Fragment>
+              <MenuItem icon={<FundImage />} title="My DeFunds" to="/fund" />
+              <MenuItem
+                icon={<InvestmentImage />}
+                title="My Investments"
+                to="/investment"
+              />
+            </React.Fragment>
+          )}
+        </OverlayScrollbarsComponent>
+      </div>
+      <ThemeContainer>
+        <Theme>Dark / light theme</Theme>
+      </ThemeContainer>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;

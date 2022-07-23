@@ -2,6 +2,7 @@ import React, { useRef, useLayoutEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import { useWeb3React } from "@web3-react/core";
 
 //import breakpoint from "./common/breakpoints";
 import Sidebar from "./Components/Layout/Sidebar";
@@ -21,6 +22,8 @@ const Page = () => (
 const App = () => {
   const location = useLocation();
   const OSComponentRef = useRef(null);
+
+  const { active } = useWeb3React();
 
   useLayoutEffect(() => {
     OSComponentRef.current.osInstance().scroll({ top: 0 });
@@ -47,10 +50,14 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Page />} />
               <Route path="/market" element={<Market />} />
-              <Route path="/fund" element={<Fund />} />
-              <Route path="/fund/create" element={<FundCreate />} />
-              <Route path="/investment" element={<Investment />} />
-              <Route path="/profile" element={<Profile />} />
+              {active && (
+                <React.Fragment>
+                  <Route path="/fund" element={<Fund />} />
+                  <Route path="/fund/create" element={<FundCreate />} />
+                  <Route path="/investment" element={<Investment />} />
+                  <Route path="/profile" element={<Profile />} />
+                </React.Fragment>
+              )}
               <Route path="page/:key" element={<Page />} />
             </Routes>
           </Content>
