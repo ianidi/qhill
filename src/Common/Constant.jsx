@@ -3,13 +3,18 @@ export const networks = [
   { id: 3, label: "Ropsten" },
   { id: 4, label: "Rinkeby" },
   { id: 42, label: "Kovan" },
-  { id: 69, label: "Optimism Kovan (testnet)" },
+  { id: 69, label: "Optimism Kovan" },
 ];
 
 export const networkParams = {
   "0x45": {
     chainId: "0x45",
-    rpcUrls: ["https://kovan.optimism.io"],
+    rpcUrls: [
+      process.env.INFURA_KEY
+        ? `https://optimism-kovan.infura.io/v3/${process.env.INFURA_KEY}`
+        : "",
+      "https://kovan.optimism.io",
+    ].filter((url) => url !== ""),
     chainName: "Optimism Kovan",
     nativeCurrency: { name: "ETH", decimals: 18, symbol: "ETH" },
     blockExplorerUrls: ["https://kovan-optimistic.etherscan.io/"],
