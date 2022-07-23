@@ -16,7 +16,7 @@ export const networkParams = {
       "https://kovan.optimism.io",
     ].filter((url) => url !== ""),
     chainName: "Optimism Kovan",
-    nativeCurrency: { name: "ETH", decimals: 18, symbol: "ETH" },
+    nativeCurrency: { name: "KOR", decimals: 18, symbol: "KOR" },
     blockExplorerUrls: ["https://kovan-optimistic.etherscan.io/"],
     iconUrls: [
       "https://assets-global.website-files.com/611dbb3c82ba72fbc285d4e2/611fd32ef63b79b5f8568d58_OPTIMISM-logo.svg",

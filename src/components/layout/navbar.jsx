@@ -27,7 +27,7 @@ const Navbar = () => {
         params: [{ chainId: toHex(network) }],
       });
     } catch (switchError) {
-      if (switchError.code === 4902) {
+      if (switchError.code === 4902 || switchError.code === -32603) {
         try {
           await library.provider.request({
             method: "wallet_addEthereumChain",
