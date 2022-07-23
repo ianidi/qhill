@@ -3,6 +3,7 @@ import styled from "styled-components";
 import FroalaEditorComponent from "react-froala-wysiwyg";
 import { Tumbler } from "@yandex/ui/Tumbler/desktop/bundle";
 import { TooltipStateful } from "@yandex/ui/Tooltip/desktop/bundle";
+import { useWeb3React } from "@web3-react/core";
 
 import "froala-editor/js/plugins.pkgd.min.js";
 // import "froala-editor/js/languages/fr.js";
@@ -20,11 +21,17 @@ const Profile = () => {
   const [value, setValue] = useState("");
   const [checked, setChecked] = useState(false);
 
+  const { active } = useWeb3React();
+
   const fileInput = useRef();
 
   const selectFile = () => {
     fileInput.current.click();
   };
+
+  if (!active) {
+    return null;
+  }
 
   return (
     <React.Fragment>

@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Modal } from "@yandex/ui/Modal/desktop/bundle";
 import { useWeb3React } from "@web3-react/core";
+import { useDispatch } from "react-redux";
 
 import { Web3Context } from "../../index";
 import { flexGap } from "../../Common/FlexGap";
@@ -9,39 +10,41 @@ import "./WalletModal.scss";
 
 import { ReactComponent as BackImage } from "../../Asset/Images/back.svg";
 import { ReactComponent as CloseImage } from "../../Asset/Images/close.svg";
-import { ReactComponent as WalletImage } from "../../Asset/Images/Wallet/metamask.svg";
+import { ReactComponent as MetamaskImage } from "../../Asset/Images/Wallet/metamask.svg";
+import { ReactComponent as WalletConnectImage } from "../../Asset/Images/Wallet/walletconnect.svg";
+import { ReactComponent as CoinbaseImage } from "../../Asset/Images/Wallet/coinbase.svg";
+import { setWallet } from "../../Store/AppSlice";
 
 const WalletModal = ({ visible, setVisible }) => {
   const [click, setClick] = useState(false);
   const { CoinbaseWallet, WalletConnect, Injected } = useContext(Web3Context);
   const { activate, deactivate } = useWeb3React();
 
-  const wallet = [
+  const dispatch = useDispatch();
+
+  const wallets = [
     {
       title: "MetaMask",
-      onClick: () => {
-        activate(Injected);
-      },
+      provider: Injected,
+      image: <MetamaskImage />,
     },
-    // { title: "Torus" },
     {
       title: "WalletConnect",
-      onClick: () => {
-        activate(WalletConnect);
-      },
+      provider: WalletConnect,
+      image: <WalletConnectImage />,
     },
+    {
+      title: "Coinbase Wallet",
+      provider: CoinbaseWallet,
+      image: <CoinbaseImage />,
+    },
+    // { title: "Torus" },
     // { title: "Opera" },
     // { title: "Trezor" },
     // { title: "Fortmatic" },
     // { title: "Ledger" },
     // { title: "Authereum" },
     // { title: "Keystone" },
-    {
-      title: "Coinbase Wallet",
-      onClick: () => {
-        activate(CoinbaseWallet);
-      },
-    },
     // { title: "Portis" },
   ];
 
@@ -71,12 +74,17 @@ const WalletModal = ({ visible, setVisible }) => {
               Please select a wallet to connect to QuantHill.defi
             </Caption>
             <WalletContainer>
-              {wallet.map((wallet, index) => (
-                <WalletItem key={index} onClick={wallet.onClick}>
-                  <WalletImageContainer>
-                    <WalletImage />
-                  </WalletImageContainer>
-                  <div>{wallet.title}</div>
+              {wallets.map((item, index) => (
+                <WalletItem
+                  key={index}
+                  onClick={() => {
+                    activate(item.provider);
+                    dispatch(setWallet(item.title));
+                    setVisible(false);
+                  }}
+                >
+                  <WalletImageContainer>{item.image}</WalletImageContainer>
+                  <div>{item.title}</div>
                 </WalletItem>
               ))}
             </WalletContainer>
@@ -84,7 +92,7 @@ const WalletModal = ({ visible, setVisible }) => {
         ) : (
           <InstallContainer>
             <WalletImageContainerLg>
-              <WalletImage style={{ width: 32, height: 32 }} />
+              <MetamaskImage style={{ width: 32, height: 32 }} />
             </WalletImageContainerLg>
             <InstallTitle>MetaMask</InstallTitle>
             <InstallCaption>
