@@ -5,12 +5,12 @@ import { Provider } from "react-redux";
 import { configureRootTheme } from "@yandex/ui/Theme";
 import { theme } from "@yandex/ui/Theme/presets/default";
 import { ToastContainer } from "react-toastify";
-import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
 import { WalletLinkConnector } from "@web3-react/walletlink-connector";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { InjectedConnector } from "@web3-react/injected-connector";
 import { Buffer } from "buffer";
+import { Web3ReactProvider } from "@web3-react/core";
 
 import App from "./App";
 import { store } from "./Store/Store";
@@ -27,10 +27,12 @@ function getLibrary(provider) {
   return new Web3Provider(provider);
 }
 
+const supportedChainIds = [1, 3, 4, 5, 42, 69];
+
 const CoinbaseWallet = new WalletLinkConnector({
   url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
   appName: "qhill",
-  supportedChainIds: [1, 3, 4, 5, 42],
+  supportedChainIds,
 });
 
 const WalletConnect = new WalletConnectConnector({
@@ -40,7 +42,7 @@ const WalletConnect = new WalletConnectConnector({
 });
 
 const Injected = new InjectedConnector({
-  supportedChainIds: [1, 3, 4, 5, 42],
+  supportedChainIds,
 });
 
 export const Web3Context = React.createContext();
