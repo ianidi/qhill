@@ -6,32 +6,12 @@ import { useWeb3React } from "@web3-react/core";
 import { useSelector } from "react-redux";
 
 import { selectWallet } from "../../Store/AppSlice";
+import { networks, networkParams } from "../../Common/Constant";
 import WalletModal from "../Modal/WalletModal";
 import Select from "../UI/Select";
 import { toHex } from "../../Common/Utils";
 import { ReactComponent as ConnectOffImage } from "../../Asset/Images/connect_off.svg";
 import { ReactComponent as ConnectOnImage } from "../../Asset/Images/connect_on.svg";
-
-const networks = [
-  { id: 1, label: "Mainnet" },
-  { id: 3, label: "Ropsten" },
-  { id: 4, label: "Rinkeby" },
-  { id: 42, label: "Kovan" },
-  { id: 69, label: "Optimism Kovan (testnet)" },
-];
-
-const networkParams = {
-  "0x45": {
-    chainId: "0x45",
-    rpcUrls: ["https://kovan.optimism.io"],
-    chainName: "Optimism Kovan",
-    nativeCurrency: { name: "ETH", decimals: 18, symbol: "ETH" },
-    blockExplorerUrls: ["https://kovan-optimistic.etherscan.io/"],
-    iconUrls: [
-      "https://assets-global.website-files.com/611dbb3c82ba72fbc285d4e2/611fd32ef63b79b5f8568d58_OPTIMISM-logo.svg",
-    ],
-  },
-};
 
 const Navbar = () => {
   const navigate = useNavigate();

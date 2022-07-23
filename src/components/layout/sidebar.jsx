@@ -80,7 +80,6 @@ function MenuItem({ icon, title, to }) {
   return (
     <React.Fragment>
       <NavLink
-        exact
         to={to}
         className={({ isActive }) =>
           isActive
