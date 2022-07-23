@@ -13,30 +13,22 @@ import { ReactComponent as ConnectOffImage } from "../../Asset/Images/connect_of
 import { ReactComponent as ConnectOnImage } from "../../Asset/Images/connect_on.svg";
 
 const networks = [
+  { id: 1, label: "Mainnet" },
   { id: 3, label: "Ropsten" },
   { id: 4, label: "Rinkeby" },
   { id: 42, label: "Kovan" },
-  { id: 1666600000, label: "Harmony" },
-  { id: 42220, label: "Celo" },
+  { id: 69, label: "Optimism Kovan (testnet)" },
 ];
 
 const networkParams = {
-  "0x63564c40": {
-    chainId: "0x63564c40",
-    rpcUrls: ["https://api.harmony.one"],
-    chainName: "Harmony Mainnet",
-    nativeCurrency: { name: "ONE", decimals: 18, symbol: "ONE" },
-    blockExplorerUrls: ["https://explorer.harmony.one"],
-    iconUrls: ["https://harmonynews.one/wp-content/uploads/2019/11/slfdjs.png"],
-  },
-  "0xa4ec": {
-    chainId: "0xa4ec",
-    rpcUrls: ["https://forno.celo.org"],
-    chainName: "Celo Mainnet",
-    nativeCurrency: { name: "CELO", decimals: 18, symbol: "CELO" },
-    blockExplorerUrl: ["https://explorer.celo.org"],
+  "0x45": {
+    chainId: "0x45",
+    rpcUrls: ["https://kovan.optimism.io"],
+    chainName: "Optimism Kovan",
+    nativeCurrency: { name: "ETH", decimals: 18, symbol: "ETH" },
+    blockExplorerUrls: ["https://kovan-optimistic.etherscan.io/"],
     iconUrls: [
-      "https://celo.org/images/marketplace-icons/icon-celo-CELO-color-f.svg",
+      "https://assets-global.website-files.com/611dbb3c82ba72fbc285d4e2/611fd32ef63b79b5f8568d58_OPTIMISM-logo.svg",
     ],
   },
 };
