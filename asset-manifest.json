@@ -1,7 +1,11 @@
 {
   "files": {
-    "main.css": "/qhill/static/css/main.1275f102.css",
-    "main.js": "/qhill/static/js/main.1695cbbc.js",
+    "main.css": "/qhill/static/css/main.1ea1118e.css",
+    "main.js": "/qhill/static/js/main.249acb5d.js",
+    "static/js/27.95280551.chunk.js": "/qhill/static/js/27.95280551.chunk.js",
+    "static/js/563.80c46f0d.chunk.js": "/qhill/static/js/563.80c46f0d.chunk.js",
+    "static/js/836.608f27b9.chunk.js": "/qhill/static/js/836.608f27b9.chunk.js",
+    "static/js/299.4d2ef264.chunk.js": "/qhill/static/js/299.4d2ef264.chunk.js",
     "static/media/Inter-ExtraBold.ttf": "/qhill/static/media/Inter-ExtraBold.e4a4cb7133001f282a15.ttf",
     "static/media/Inter-Black.ttf": "/qhill/static/media/Inter-Black.143c28420846d45c5834.ttf",
     "static/media/Inter-Bold.ttf": "/qhill/static/media/Inter-Bold.88fa7ae373b07b41ecce.ttf",
@@ -18,8 +22,11 @@
     "static/media/hand@2x.png": "/qhill/static/media/hand@2x.21b44010b48e1b7cc934.png",
     "static/media/oops.png": "/qhill/static/media/oops.d9e9d8a993171124c8bb.png",
     "static/media/metamask.svg": "/qhill/static/media/metamask.e5b585230afa6178bb2e1fe5fa7980f1.svg",
+    "static/media/walletconnect.svg": "/qhill/static/media/walletconnect.03da5e3f7ae7def7a75fea3a8f779e3f.svg",
     "static/media/btc.svg": "/qhill/static/media/btc.47b5335000b2c5289f749938cb6fd7a7.svg",
+    "static/media/connect_on.svg": "/qhill/static/media/connect_on.84af559f4bdfabeb474a8b6e2d2f88c8.svg",
     "static/media/growth.svg": "/qhill/static/media/growth.31e99f2c3be6d0b11343fb96d025dfba.svg",
+    "static/media/connect_off.svg": "/qhill/static/media/connect_off.a8c89b2317714a416e16f26b7ac69abb.svg",
     "static/media/investors.svg": "/qhill/static/media/investors.d122f6e0e4d6c50e2b5c685fd18efebb.svg",
     "static/media/aum.svg": "/qhill/static/media/aum.92c712482398d356083cdbbc64ef6736.svg",
     "static/media/negative.svg": "/qhill/static/media/negative.ff2a8a71563cd9fc346b1f8fe0d2352d.svg",
@@ -37,15 +44,14 @@
     "static/media/search.svg": "/qhill/static/media/search.9308f705b26e1b630e78ba8fb8d50fb3.svg",
     "static/media/check.svg": "/qhill/static/media/check.a5dedb17d7497b33fb146e041313f483.svg",
     "static/media/back.svg": "/qhill/static/media/back.fb00781bda9d17181d71622ca1949deb.svg",
+    "static/media/coinbase.svg": "/qhill/static/media/coinbase.ff1bcce15df8086e0c53075d5c100c57.svg",
     "static/media/plus.svg": "/qhill/static/media/plus.dd72e56f86554ee49f2adab504dc155e.svg",
     "static/media/tick-s.svg": "/qhill/static/media/tick-s.4db4c7e5691de38b89d8.svg",
     "static/media/tick-m.svg": "/qhill/static/media/tick-m.2ab0899999d093750829.svg",
-    "static/media/indeterminate-black.svg": "/qhill/static/media/indeterminate-black.a5f79c677e11414c0be1.svg",
-    "main.1275f102.css.map": "/qhill/static/css/main.1275f102.css.map",
-    "main.1695cbbc.js.map": "/qhill/static/js/main.1695cbbc.js.map"
+    "static/media/indeterminate-black.svg": "/qhill/static/media/indeterminate-black.a5f79c677e11414c0be1.svg"
   },
   "entrypoints": [
-    "static/css/main.1275f102.css",
-    "static/js/main.1695cbbc.js"
+    "static/css/main.1ea1118e.css",
+    "static/js/main.249acb5d.js"
   ]
 }
